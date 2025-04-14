@@ -1,0 +1,3 @@
+[2025-04-14T07:06:56.566Z] Transaksi ditambahkan: Beli Kopi - Rp15000 - 
+    anam
+[2025-04-14T07:07:01.466Z] Statistik ditampilkan.

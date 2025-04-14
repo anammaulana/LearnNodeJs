@@ -35,10 +35,11 @@ function tulisLog(pesan) {
   });
 }
 
-async function tambahTransaksi(nama, nominal) {
-  const transaksi = { nama, nominal: Number(nominal), waktu: new Date().toISOString() };
+async function tambahTransaksi(nama, nominal, namaPelanggan) {
+  const transaksi = { nama, nominal: Number(nominal),namaPelanggan, waktu: new Date().toISOString() };
   await simpanTransaksi(transaksi);
-  tulisLog(`Transaksi ditambahkan: ${nama} - Rp${nominal}`);
+  tulisLog(`Transaksi ditambahkan: ${nama} - Rp${nominal} - 
+    ${namaPelanggan}`);
   console.log('Transaksi berhasil disimpan!');
 }
 
@@ -54,11 +55,13 @@ async function tampilkanStatistik() {
 const cmd = process.argv[2];
 const arg1 = process.argv[3];
 const arg2 = process.argv[4];
+const arg3 = process.argv[5];
 
 if (cmd === 'add') {
-  tambahTransaksi(arg1, arg2);
+  tambahTransaksi(arg1, arg2, arg3);
 } else if (cmd === 'stats') {
   tampilkanStatistik();
 } else {
-  console.log('Perintah tidak dikenal. Gunakan: add <nama> <nominal> atau stats');
+  console.log('Perintah tidak dikenal. Gunakan: add <nama> <nominal> <nama pelanggan> atau stats');
 }
+
